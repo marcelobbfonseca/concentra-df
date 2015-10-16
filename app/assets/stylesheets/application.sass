@@ -1,0 +1,71 @@
+//-------------------------------------
+// #APPLICATION
+// Neste arquivo é importado todos os arquivos
+// de estilo do projeto, ele é chamado no header 
+// do HTML e importa os arquivo na ordem que 
+// a equipe decidir.
+//-------------------------------------
+
+//-------------------------------------
+// *Estrutura
+// AMBIENCE -> Arquivos com variáveis e mixins.
+// BASE -> Modifica estilo de tags do HTML ou estruturas base do projeto como wrapper
+// COMPONENTS -> Componentes de estilo estraídos do projeto
+// PAGES -> Estilização de exceções em estilos de componentes ou estilos unicos de paginas
+// TRUMPS -> Classes que irão sobrescrever os estilos de outras classes
+//-------------------------------------
+
+
+//-------------------------------------
+// #CHARSET
+// Definição de simbolo unicode(padrão
+// brasileiro tem ` ~ ^ entre outros 
+// simbolos usados na escrita do portugues
+//-------------------------------------
+@charset 'UTF-8'
+
+//-------------------------------------
+// # Bourbon e Neat
+// Importação das bibliotecas de mixins
+// bourbon e neat(que será usado pra colunagem)
+//-------------------------------------
+
+@import "bourbon/app/assets/stylesheets/bourbon"
+@import "neat/app/assets/stylesheets/neat"
+
+//-------------------------------------
+// #AMBIENCE
+//-------------------------------------
+
+@import 'ambience/breakpoints'
+@import 'ambience/typography' 
+@import 'ambience/colors'
+@import 'ambience/grid'
+@import 'ambience/mixins'
+
+//-------------------------------------
+// #BASE
+//-------------------------------------
+
+@import 'base/normalize'
+@import 'base/structure'
+
+//-------------------------------------
+// #COMPONENTS
+//-------------------------------------
+
+@import 'components/horizontal-nav'
+
+//-------------------------------------
+// #PAGES
+//-------------------------------------
+
+@import 'pages/home'
+@import 'pages/virgin'
+@import 'pages/jedi-list'
+
+//-------------------------------------
+// #TRUMPS
+//-------------------------------------
+
+@import 'trumps/helpers'

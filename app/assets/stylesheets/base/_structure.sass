@@ -1,0 +1,17 @@
+//-------------------------------------
+// #STRUCTURE
+// Existem neste arquivo esxistem classe
+// que são usadas na estrutura padão do
+// projeto, por exemplo a borda laterel
+// na renderização das páginas
+//-------------------------------------
+
+//-------------------------------------
+// #WRAPPER
+//-------------------------------------
+.wrapper
+  +clearfix // exemplo de uso de mixin
+  margin: 0 auto
+  width: calc(60% + 320px)
+  @media(max-width: $breakpoint-sm)
+    max-width: calc(100vw - 40px)

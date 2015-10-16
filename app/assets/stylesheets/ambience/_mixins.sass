@@ -1,0 +1,35 @@
+//-------------------------------------
+// #Mixins
+// São um conjunto de atributos que podem
+// ser adicionadas em uma classe quando
+// o mixin é importado
+// 
+//-------------------------------------
+
+@mixin transform($transformation)
+  -moz-transform: $transformation
+  -o-transform: $transformation
+  -ms-transform: $transformation
+  -webkit-transform: $transformation
+  transform: $transformation
+
+
+@mixin clearfix 
+  &:before,
+  &:after 
+    content: " "  
+    display: table
+  
+
+  &:after 
+    clear: both
+  
+
+
+
+@mixin v-align 
+  position: relative
+  top: 50%
+  @include transform(translateY(-50%))
+
+
