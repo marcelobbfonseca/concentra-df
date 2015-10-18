@@ -16,4 +16,21 @@ ActiveRecord::Schema.define(version: 20151011201834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "jedis", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "padawans", force: :cascade do |t|
+    t.integer  "jedi_id"
+    t.string   "name"
+    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "padawans", ["jedi_id"], name: "index_padawans_on_jedi_id", using: :btree
+
 end
