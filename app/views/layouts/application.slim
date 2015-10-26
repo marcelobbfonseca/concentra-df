@@ -5,13 +5,9 @@ html
     = csrf_meta_tags
 
   body
-    = render 'pages/partials/header'
 
 
     = yield
 
 
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-
-
-    = render 'pages/partials/footer'
