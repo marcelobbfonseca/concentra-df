@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 
-
+#para autenticacao
 gem 'devise', '~> 3.5', '>= 3.5.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
