@@ -19592,3 +19592,32 @@ NoMethodError (undefined method `authenticate' for #<User:0x0000000506f040>):
   Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
   Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
   Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/login" for 189.6.122.83 at 2015-11-14 22:10:02 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (28.5ms)
+  Rendered partials/_header.slim (3.0ms)
+  Rendered partials/_footer.slim (2.3ms)
+Completed 200 OK in 274ms (Views: 273.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 189.6.122.83 at 2015-11-14 22:10:12 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lX4zVTbDbJVqt8ImHa/HmWv1mtUTynSH1BctjrhwkAb2AYTkLvaGzM3Hzp8sKNVDhoYvZyhLMt5mNsU8S/OVng==", "session"=>{"email"=>"aloaloalo@alomail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "aloaloalo@alomail.com"]]
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.9ms)
+
+NameError (undefined local variable or method `password_digest' for #<User:0x007fb624c1e828>):
+  app/controllers/sessions_controller.rb:7:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.7ms)
