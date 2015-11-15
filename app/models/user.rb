@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 255 },
                 format: { with: VALID_EMAIL_REGEX },
                 uniqueness: { case_sensitive: false }
-    has_secure_password
+    #has_secure_password nao precisa por com o devise, ja é tratado sozinho. da erro
     validates :password, presence: true, length: { minimum: 5 }
 
     # Returns the hash digest of the given string.
