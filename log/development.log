@@ -19980,3 +19980,91 @@ Processing by SessionsController#create as HTML
   Rendered partials/_header.slim (0.0ms)
   Rendered partials/_footer.slim (0.0ms)
 Completed 200 OK in 72ms (Views: 70.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 189.6.122.83 at 2015-11-15 17:24:35 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (18.0ms)
+  Rendered partials/_header.slim (5.2ms)
+  Rendered partials/_footer.slim (2.5ms)
+Completed 200 OK in 332ms (Views: 328.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 189.6.122.83 at 2015-11-15 17:24:39 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.4ms)
+  Rendered partials/_header.slim (0.0ms)
+  Rendered partials/_footer.slim (0.1ms)
+Completed 200 OK in 191ms (Views: 190.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 189.6.122.83 at 2015-11-15 17:24:54 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (37.7ms)
+  Rendered partials/_header.slim (0.1ms)
+  Rendered partials/_footer.slim (0.1ms)
+Completed 200 OK in 263ms (Views: 262.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 189.6.122.83 at 2015-11-15 17:25:16 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hAyVFYljFdfgt3gNsRz4PkTlknRNH9qhPm4Tc9k/5tDncyKkkVb/jkfHdLSAm+rkqZYnxnaenPiMT/vBKrzjSA==", "session"=>{"email"=>"pau@hotpau.pau", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "pau@hotpau.pau"]]
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered partials/_header.slim (0.0ms)
+  Rendered partials/_footer.slim (0.0ms)
+Completed 200 OK in 112ms (Views: 96.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 189.6.122.83 at 2015-11-15 17:25:45 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JTjyivgjqUbZ9FoPzZZrIZpCm3yinqdPxc63qC1hty1GR0U74BZDH36EVrb8EXn7dzEuzpkf4RZ3718a3uKytQ==", "session"=>{"email"=>"aloalo@alomail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "aloalo@alomail.com"]]
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered partials/_header.slim (0.0ms)
+  Rendered partials/_footer.slim (0.0ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/signup" for 189.6.122.83 at 2015-11-15 17:25:52 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (5.6ms)
+  Rendered users/new.html.erb within layouts/application (7.0ms)
+  Rendered partials/_header.slim (0.0ms)
+  Rendered partials/_footer.slim (0.0ms)
+Completed 200 OK in 54ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 189.6.122.83 at 2015-11-15 17:26:07 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E3I9d6/DbxuJa1JCutiJsahxCVWLVvWbzdZASn995eZwDYrGt/aFQi4bXvuLX5trRQK857DXs8J/96j4jP7gfg==", "user"=>{"email"=>"guinhadoido@hotguina.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `name' for #<User:0x007faa393aa3a0>):
+  app/controllers/users_controller.rb:34:in `block in create'
+  app/controllers/users_controller.rb:33:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddRememberDigestToUsers (20151115172938)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "remember_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151115172938"]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

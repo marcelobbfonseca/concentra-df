@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password]) #validacao
       # Log the user in and redirect to the user's show page.
       log_in user
-      redirect_to login_path
+      remember user
+      redirect_to login_path #user
     else
       flash.now[:danger] = 'Invalid email/password combination' # holy guacamolei! danger nao vai rolar pq nao tem bootstrap :/
       render 'new'
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
   
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url    
   end
 end
