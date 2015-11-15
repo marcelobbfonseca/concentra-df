@@ -20068,3 +20068,104 @@ Migrating to AddRememberDigestToUsers (20151115172938)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151115172938"]]
   [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/login" for 189.6.122.83 at 2015-11-15 19:26:02 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (49.0ms)
+  Rendered partials/_header.slim (3.3ms)
+  Rendered partials/_footer.slim (3.6ms)
+Completed 200 OK in 405ms (Views: 404.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 189.6.122.83 at 2015-11-15 19:26:11 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (10.3ms)
+  Rendered users/new.html.erb within layouts/application (14.2ms)
+  Rendered partials/_header.slim (0.1ms)
+  Rendered partials/_footer.slim (0.1ms)
+Completed 200 OK in 123ms (Views: 112.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 189.6.122.83 at 2015-11-15 19:26:26 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HKdJi7RMqjF8L1tbR/VOWzB09525JFXbmTmJl7wE37B/2P46rHlAaNtfV+J2clyB3QdCL4KlE4IrGGElT4faKA==", "user"=>{"email"=>"novouser@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `name' for #<User:0x000000055147a8>):
+  app/controllers/users_controller.rb:34:in `block in create'
+  app/controllers/users_controller.rb:33:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.0ms)
+
+
+Started GET "/users" for 189.6.122.83 at 2015-11-15 20:22:30 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (17.6ms)
+  Rendered partials/_header.slim (3.3ms)
+  Rendered partials/_footer.slim (3.5ms)
+Completed 200 OK in 266ms (Views: 262.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for 189.6.122.83 at 2015-11-15 20:22:38 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (20.0ms)
+  Rendered partials/_header.slim (0.1ms)
+  Rendered partials/_footer.slim (0.0ms)
+Completed 200 OK in 98ms (Views: 97.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 189.6.122.83 at 2015-11-15 20:22:38 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (9.5ms)
+  Rendered partials/_header.slim (0.0ms)
+  Rendered partials/_footer.slim (0.0ms)
+Completed 200 OK in 91ms (Views: 90.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 189.6.122.83 at 2015-11-15 20:22:43 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (8.9ms)
+  Rendered users/new.html.erb within layouts/application (11.3ms)
+  Rendered partials/_header.slim (0.1ms)
+  Rendered partials/_footer.slim (0.1ms)
+Completed 200 OK in 144ms (Views: 143.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 189.6.122.83 at 2015-11-15 20:22:55 +0000
+Cannot render console from 189.6.122.83! Allowed networks: 179.179.56.10, 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0x8Pf90nEDlVRH17cqL9ml2IKCZNAmx9+YN88PQeYHqwYLjOxRL6YPI0ccJDJe9AsPudlHaDKiRLopRCB51l4g==", "user"=>{"email"=>"wbrasil@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('wbrasil@gmail.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "wbrasil@gmail.com"], ["password", "123456"], ["created_at", "2015-11-15 20:22:55.331701"], ["updated_at", "2015-11-15 20:22:55.331701"]]
+  [1m[35m (15.4ms)[0m  commit transaction
+Redirected to https://concentra-df-marcelobbfonseca.c9.io/users/3
+Redirected to 
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 16.1ms)
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/users_controller.rb:35:in `block (2 levels) in create'
+  app/controllers/users_controller.rb:33:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (36.6ms)
