@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: 'localhost', port: 8080 } #8080 é a porta do c9
+  config.action_mailer.default_url_options = { host: 'localhost', port: 8080 } #8080 é a porta do c9. MUDE PARA 3000
   #config.web_console.whiny_requests = false #ignorar a poha toda
   config.web_console.whitelisted_ips = %w(189.6.122.83 )
   
