@@ -5,9 +5,12 @@ html
     = csrf_meta_tags
 
   body
-
+    = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) 
+    p.notice = notice
+    p.alert = alert
 
     = yield
-
+    
 
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    
