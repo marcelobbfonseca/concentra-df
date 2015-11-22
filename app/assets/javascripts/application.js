@@ -13,3 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require components/countdown
+//= require components/easteregg
