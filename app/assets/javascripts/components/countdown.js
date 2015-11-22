@@ -1,4 +1,4 @@
-var deadline = 'October 18 2015 20:35:00 GMT-02:00';
+var deadline = 'November 18 2015 20:35:00 GMT-02:00';
 
 if (Date.parse(deadline) - Date.parse(new Date()) > 0) {
 	initializeClock('countdown-clock', deadline);
