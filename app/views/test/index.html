@@ -16,12 +16,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 <!-- AQUI ENTRA TODOS OS SCRIPTS DO HEADER -->
-<script>
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-    
-</script>
+
 <div id="fb-root"></div>
 <script>
     (function(d, s, id) {
@@ -137,4 +132,5 @@
 
 <div id="status">
 </div>
-
+<p>sair</p>
+<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
