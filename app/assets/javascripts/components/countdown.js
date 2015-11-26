@@ -1,47 +1,73 @@
-var deadline = 'November 18 2015 20:35:00 GMT-02:00';
+// Contadores
+var openRegistration = '';
 
-if (Date.parse(deadline) - Date.parse(new Date()) > 0) {
-	initializeClock('countdown-clock', deadline);
-}
+// Data final dos contadores
+openRegistration = 'November 19 2015 02:35:00 GMT-02:00';
 
-function getTimeRemaining(endtime){
-  var t = Date.parse(endtime) - Date.parse(new Date());
-  var seconds = Math.floor( (t/1000) % 60 );
-  var minutes = Math.floor( (t/1000/60) % 60 );
-  var hours = Math.floor( (t/(1000*60*60)) % 24 );
-  var days = Math.floor( t/(1000*60*60*24) );
-  return {
-    'total': t,
-    'days': days,
-    'hours': hours,
-    'minutes': minutes,
-    'seconds': seconds
-  };
-}
+// Inicialização dos contadores
+initializeClock( '.countdown-clock', openRegistration );
 
-function initializeClock(id, endtime){
-  var clock = document.getElementById(id);
-  var daysSpan = clock.querySelector('.days');
-  var hoursSpan = clock.querySelector('.hours');
-  var minutesSpan = clock.querySelector('.minutes');
-  var secondsSpan = clock.querySelector('.seconds');
 
-	clock.style.display = 'block';
+function initializeClock( clockClass, deadline ) {
 
-  function updateClock(){
-    var t = getTimeRemaining(endtime);
+  var
+    daysSelector = '',
+    hoursSelector = '',
+    minutesSelector = '',
+    secondsSelector = '',
+    timeinterval = 0;
 
-    daysSpan.innerHTML = t.days;
-    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+  // Define seletores do contador
+  daysSelector = $( clockClass + ' > .countdown-clock__days > span' );
+  hoursSelector = $( clockClass + ' > .countdown-clock__hours > span' );
+  minutesSelector = $( clockClass + ' > .countdown-clock__minutes > span' );
+  secondsSelector = $( clockClass + ' > .countdown-clock__seconds > span' );
 
-    if(t.total<=0){
-      clearInterval(timeinterval);
-			clock.style.display = 'none';
+  // Define intervalo de atualização do contador em milisegundos
+  timeinterval = setInterval( updateClock, 1000 );
+
+  // Mostra contador
+  $( '.countdown-clock' ).show();
+
+  // Atualiza o contador
+  updateClock();
+
+
+  function updateClock() {
+
+    var t = getRemainingTime();
+
+    daysSelector.text( t.days );
+    hoursSelector.text( ( '0' + t.hours ).slice(-2) );
+    minutesSelector.text( ( '0' + t.minutes ).slice(-2) );
+    secondsSelector.text( ( '0' + t.seconds ).slice(-2) );
+
+    if( t.total <= 0 ) {
+      clearInterval( timeinterval );
+      $( '.countdown-clock' ).hide();
     }
+
   }
 
-  updateClock();
-  var timeinterval = setInterval(updateClock,1000);
+  function getRemainingTime() {
+
+    var
+  		currentTime = Date.parse( new Date() ),
+  		endTime = Date.parse( deadline ),
+  		remainingTime = endTime - currentTime,
+    	seconds = Math.floor( ( remainingTime / 1000 ) % 60 ),
+    	minutes = Math.floor( ( remainingTime / 1000 / 60 ) % 60 ),
+    	hours = Math.floor( ( remainingTime / ( 1000 * 60 * 60 ) ) % 24 ),
+    	days = Math.floor( remainingTime / ( 1000 * 60 * 60 * 24 ) );
+
+    return {
+      'total': remainingTime,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+
+  }
+
 }
