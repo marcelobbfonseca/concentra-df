@@ -3,7 +3,7 @@
 // São um conjunto de atributos que podem
 // ser adicionadas em uma classe quando
 // o mixin é importado
-// 
+//
 //-------------------------------------
 
 @mixin transform($transformation)
@@ -14,22 +14,20 @@
   transform: $transformation
 
 
-@mixin clearfix 
+@mixin clearfix
   &:before,
-  &:after 
-    content: " "  
+  &:after
+    content: ''
     display: table
-  
 
-  &:after 
+
+  &:after
     clear: both
-  
 
 
 
-@mixin v-align 
+
+@mixin v-align
   position: relative
   top: 50%
   @include transform(translateY(-50%))
-
-
