@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @complement.name %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @complement.cpf %>
+</p>
+
+<p>
+  <strong>Rg:</strong>
+  <%= @complement.rg %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @complement.photo %>
+</p>
+
+<p>
+  <strong>Badge name:</strong>
+  <%= @complement.badge_name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @complement.user_id %>
+</p>
+
+<p>
+  <strong>Je:</strong>
+  <%= @complement.je_id %>
+</p>
+
+<%= link_to 'Edit', edit_complement_path(@complement) %> |
+<%= link_to 'Back', complements_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Complements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cpf</th>
+      <th>Rg</th>
+      <th>Photo</th>
+      <th>Badge name</th>
+      <th>User</th>
+      <th>Je</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @complements.each do |complement| %>
+      <tr>
+        <td><%= complement.name %></td>
+        <td><%= complement.cpf %></td>
+        <td><%= complement.rg %></td>
+        <td><%= complement.photo %></td>
+        <td><%= complement.badge_name %></td>
+        <td><%= complement.user_id %></td>
+        <td><%= complement.je_id %></td>
+        <td><%= link_to 'Show', complement %></td>
+        <td><%= link_to 'Edit', edit_complement_path(complement) %></td>
+        <td><%= link_to 'Destroy', complement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Complement', new_complement_path %>

@@ -1,0 +1,17 @@
+<%= simple_form_for(@complement) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :cpf %>
+    <%= f.input :rg %>
+    <%= f.input :photo %>
+    <%= f.input :badge_name %>
+    <%= f.input :user_id %>
+    <%= f.input :je_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
