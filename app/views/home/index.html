@@ -1,0 +1,37 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1195478807136180',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- AQUI ENTRA TODOS OS SCRIPTS DO HEADER -->
+
+<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+
+<script type="text/javascript">
+function sair(){
+  FB.logout(function(response) {
+  // user is now logged out
+});
+}
+
+</script>
