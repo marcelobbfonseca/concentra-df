@@ -2,7 +2,7 @@
 var openRegistration = '';
 
 // Data final dos contadores
-openRegistration = 'November 19 2015 02:35:00 GMT-02:00';
+openRegistration = 'October 26 2016 02:35:00 GMT-02:00';
 
 // Inicialização dos contadores
 initializeClock( '.countdown-clock', openRegistration );
