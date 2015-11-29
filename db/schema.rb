@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20151126125419) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "complements", force: :cascade do |t|
     t.string   "name"
     t.string   "cpf"
@@ -34,6 +35,8 @@ ActiveRecord::Schema.define(version: 20151126125419) do
     t.datetime "updated_at", null: false
   end
 
+=======
+>>>>>>> e3b8ca3ab579ac935513d80cda12eb36a7f07f9c
   create_table "filiations", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -47,12 +50,15 @@ ActiveRecord::Schema.define(version: 20151126125419) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "jes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+=======
+>>>>>>> e3b8ca3ab579ac935513d80cda12eb36a7f07f9c
   create_table "modalities", force: :cascade do |t|
     t.string   "name"
     t.integer  "vacancy"

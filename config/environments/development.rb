@@ -2,10 +2,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } #8080 é a porta do c9. MUDE PARA 3000
   #config.web_console.whiny_requests = false #ignorar a poha toda
   config.web_console.whitelisted_ips = %w(189.6.122.83 )
-  
-  
+
   # Settings specified here will take precedence over those in config/application.rb.
-  
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

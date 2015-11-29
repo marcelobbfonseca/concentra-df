@@ -18,6 +18,7 @@
 <!-- AQUI ENTRA TODOS OS SCRIPTS DO HEADER -->
 
 <%= render "pages/partials/countdown" %>
+
 <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 
 
@@ -26,10 +27,7 @@
 
 <div id="status">
 </div>
-<p>sair</p>
 <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-<button onclick="sair()">Sair do logFB</button>
-
 
 <script type="text/javascript">
 function sair(){
@@ -37,5 +35,5 @@ function sair(){
   // user is now logged out
 });
 }
-  
+
 </script>

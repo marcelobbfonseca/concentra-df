@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  modality_id: 1
+  filiation_id: 1
+  name: MyString
+  price: 1.5
+
+two:
+  modality_id: 1
+  filiation_id: 1
+  name: MyString
+  price: 1.5
