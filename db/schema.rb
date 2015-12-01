@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126125419) do
+ActiveRecord::Schema.define(version: 20151201110549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20151126125419) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
   create_table "complements", force: :cascade do |t|
     t.string   "name"
     t.string   "cpf"
@@ -35,8 +34,6 @@ ActiveRecord::Schema.define(version: 20151126125419) do
     t.datetime "updated_at", null: false
   end
 
-=======
->>>>>>> e3b8ca3ab579ac935513d80cda12eb36a7f07f9c
   create_table "filiations", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -50,15 +47,12 @@ ActiveRecord::Schema.define(version: 20151126125419) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
   create_table "jes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-=======
->>>>>>> e3b8ca3ab579ac935513d80cda12eb36a7f07f9c
   create_table "modalities", force: :cascade do |t|
     t.string   "name"
     t.integer  "vacancy"
@@ -123,7 +117,7 @@ ActiveRecord::Schema.define(version: 20151126125419) do
     t.datetime "updated_at",            null: false
   end
 
-  create_table "weiting_lists", force: :cascade do |t|
+  create_table "waiting_lists", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "modality_filiation_id"
     t.integer  "position"

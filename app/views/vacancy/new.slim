@@ -1,0 +1,13 @@
+= render "pages/partials/countdown"
+
+span.choice__id Sua escolha
+span.choice__name Sua escolha
+span.choice__price Sua escolha
+
+== @modality_filiations.each do |modality_filiation|
+  .mf
+    span.mf__id = modality_filiation.id
+    span.mf__name = modality_filiation.name
+    span.mf__price = modality_filiation.price
+
+button.send-choice Enviar

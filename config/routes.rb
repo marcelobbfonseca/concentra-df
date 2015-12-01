@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :jes
+  post '/vaga' => 'vacancy#create', as: :vacancy
+  resources :vacancy
   resources :complements
   #root to: "test#index"
   root to: "home#index"
@@ -7,13 +9,10 @@ Rails.application.routes.draw do
   devise_scope :user do #tava user
     #delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
-  
-  
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
-  
-  
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
