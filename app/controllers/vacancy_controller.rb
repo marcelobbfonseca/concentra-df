@@ -25,7 +25,7 @@ class VacancyController < ApplicationController
     end
 
     if @vacancy.save
-      render nothing: true
+      render json: {waiting_list: @vacancy.waiting_list}
     else
       render json: @vacancy.errors, status: :unprocessable_entity
     end

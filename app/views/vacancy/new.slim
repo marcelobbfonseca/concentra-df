@@ -1,13 +1,23 @@
-= render "pages/partials/countdown"
+.subscription
+  = render "pages/partials/countdown"
+  .wrapper
+    .subscription__choice
+      h3 Escolha uma modalidade
+      ul
+        - @modality_filiations.each do |modality_filiation|
+          li.mf
+            span.mf__id = modality_filiation.id
+            span.mf__name = modality_filiation.name
+            span R$
+            span.mf__price = modality_filiation.price
 
-span.choice__id Sua escolha
-span.choice__name Sua escolha
-span.choice__price Sua escolha
+      button.send-choice Inscrever-se
 
-== @modality_filiations.each do |modality_filiation|
-  .mf
-    span.mf__id = modality_filiation.id
-    span.mf__name = modality_filiation.name
-    span.mf__price = modality_filiation.price
+    .subscription__vacancy
+      span Parabéns você conseguiu a vaga.
 
-button.send-choice Enviar
+    .subscription__waiting-list
+      span Você está na fila de espera.
+
+    .subscription__error
+      span Ocorreu algum erro. Você não garantiu sua vaga.

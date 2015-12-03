@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_one :vacancy
-  has_one :weiting_list
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,

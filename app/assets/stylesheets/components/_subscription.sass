@@ -1,0 +1,59 @@
+.subscription
+  h3
+    padding: 20px
+    margin: 0
+    color: $color-blue-dark
+  .subscription__choice
+    +span-columns(4)
+    float: none
+    margin: 0 auto
+
+  ul
+    margin: 0
+
+  li
+    border: 4px solid $color-blue-dark
+    border-bottom: none
+    padding: 20px
+
+
+    &:last-child
+      border-bottom: 4px solid $color-blue-dark
+
+  span
+    margin-right: 10px
+
+  .mf
+    cursor: pointer
+    transition: 0.4s
+
+  .mf--active
+    background-color: $color-blue-dark
+    color: $color-white
+
+  .send-choice
+    display: block
+    border-radius: 0
+    padding: 20px
+    margin: 0 auto
+    margin-top: 20px
+    background-color: $color-blue-dark
+    color: $color-white
+    font-size: 20px
+    border: none
+    cursor: pointer
+
+
+  .subscription__choice--hidden
+    display: none
+
+  .subscription__vacancy,
+  .subscription__waiting-list,
+  .subscription__error
+    display: none
+
+  .subscription__vacancy--active,
+  .subscription__waiting-list--active,
+  .subscription__error--active
+    display: block
+    text-align: center
