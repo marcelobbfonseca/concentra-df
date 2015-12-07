@@ -6,6 +6,7 @@ class VacancyController < ApplicationController
   def create
 
     @modality_filiation = ModalityFiliation.find(vacancy_params[:modality_filiation_id])
+
     @modality = Modality.find(@modality_filiation.modality)
 
     @similar_mfs = ModalityFiliation.where("modality_id = ?",@modality.id)
@@ -25,7 +26,20 @@ class VacancyController < ApplicationController
     end
 
     if @vacancy.save
-      render json: {waiting_list: @vacancy.waiting_list}
+
+      @position_waiting_list = 0
+      if @vacancy.waiting_list == true
+
+        @similar_mfs.each do |similar_mf|
+          @position_waiting_list += Vacancy.where("modality_filiation_id = ? AND created_at > ? AND waiting_list = true",similar_mf.id,similar_mf.created_at).count
+        end
+
+        render json: {waiting_list: @vacancy.waiting_list,position_waiting_list: @position_waiting_list}
+
+      else
+        render json: {waiting_list: @vacancy.waiting_list}
+      end
+
     else
       render json: @vacancy.errors, status: :unprocessable_entity
     end

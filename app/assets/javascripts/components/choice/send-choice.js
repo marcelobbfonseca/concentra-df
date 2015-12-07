@@ -5,9 +5,10 @@ $('.send-choice').click(function(){
     data: {vacancy: {modality_filiation_id: $('.mf--active .mf__id').html()}},
     success: function(data){
       $('.subscription__choice').addClass('subscription__choice--hidden');
-      console.log(data['waiting_list']);
+      console.log(data);
       if(data['waiting_list']){
         $('.subscription__waiting-list').addClass('subscription__waiting-list--active');
+        $('.waiting-list__position').html('Você está na posição ' + data['position_waiting_list']);
       }
       else{
         $('.subscription__vacancy').addClass('subscription__vacancy--active');
