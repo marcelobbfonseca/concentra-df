@@ -675,3 +675,954 @@ Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7
 
 
 Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-22 13:50:31 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:18:50 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.4) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.4) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/lmafra/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lmafra/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lmafra/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20151121185957)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (86.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20151121185957"]]
+  [1m[36m (11.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddDeviseToUsers (20151121190158)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (126.8ms)[0m  [1mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (66.4ms)[0m  ALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "reset_password_sent_at" timestamp
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "remember_created_at" timestamp[0m
+  [1m[35m (66.2ms)[0m  ALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "current_sign_in_at" timestamp[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "last_sign_in_at" timestamp
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "current_sign_in_ip" character varying[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "last_sign_in_ip" character varying
+  [1m[36m (29.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (32.0ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20151121190158"]]
+  [1m[35m (13.5ms)[0m  COMMIT
+Migrating to AddOmniauthToUsers (20151121191306)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "provider" character varying
+  [1m[36m (38.8ms)[0m  [1mCREATE  INDEX  "index_users_on_provider" ON "users"  ("provider")[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "uid" character varying
+  [1m[36m (31.9ms)[0m  [1mCREATE  INDEX  "index_users_on_uid" ON "users"  ("uid")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20151121191306"]]
+  [1m[36m (11.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'blocks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'rooms'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:19:03 -0200
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (157.7ms)
+Completed 200 OK in 1156ms (Views: 1155.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-ea0222283ecd2bb18c93da3fe2208972f3e4ac8326c4f974394f9a0a8b02c46a.css?body=1" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:19:04 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:32:49 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (2.5ms)
+Completed 200 OK in 336ms (Views: 335.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e5d9b0ed6a1c0b0e88e21ee88775731f55ebd8a9077f9cbd40ca4b09de7dca53.css?body=1" for 127.0.0.1 at 2015-11-26 12:32:49 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:32:50 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:32:50 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:32:50 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:32:50 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:32:50 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:32:50 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:32:50 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:33:00 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (1.1ms)
+Completed 200 OK in 420ms (Views: 419.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-3480057984e144f6774146d90c46f8584b7c2f6d53282745fbf84a0589c42f6b.css?body=1" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:33:01 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (2.7ms)
+Completed 200 OK in 349ms (Views: 348.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-b5e52df62465f82e81ba7599092d01893696da12b78ef29b5461be9ae5cd670c.css?body=1" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:33:17 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (1.0ms)
+Completed 200 OK in 369ms (Views: 369.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-10bc639b15814ac08294821793ccff3bc4cf30b843959b78c44d727b50c7fafc.css?body=1" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:33:46 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:34:51 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (3.7ms)
+Completed 200 OK in 354ms (Views: 353.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-f50ed34a73c375c9c1162186ca8b7f9aa3eb3d8ff48bbefb0de7bf172e9ef587.css?body=1" for 127.0.0.1 at 2015-11-26 12:34:51 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 359ms (Views: 358.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6f4a819dae668d18bd7189a397896c312acbe8fe8553894524c8c3b3537461b1.css?body=1" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:35:22 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 351ms (Views: 350.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/assets/application.self-5b3e09ac589d34153317bb889264d514cac1a342f59e9f9021fea6fa02ea5c1e.css?body=1" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:35:49 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.1ms)
+Completed 200 OK in 43ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6f4a819dae668d18bd7189a397896c312acbe8fe8553894524c8c3b3537461b1.css?body=1" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:35:56 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:36:36 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 332ms (Views: 332.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4ee31c8f07965e1b87442af1eb87b83add8014aa0e6edd2d9d517b3ee372088a.css?body=1" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:36:37 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:37:02 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.1ms)
+Completed 200 OK in 366ms (Views: 365.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-a3f96c3dea9003263ed4a7391d07e12f514735985bb2bbf464076db3eb4b129f.css?body=1" for 127.0.0.1 at 2015-11-26 12:37:02 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 346ms (Views: 345.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/assets/application.self-d6698dcc2dac4aeeaa54ca4f747dd945eba534172f471caab200f8834c272f94.css?body=1" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:37:14 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (4.3ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-3480057984e144f6774146d90c46f8584b7c2f6d53282745fbf84a0589c42f6b.css?body=1" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:39:24 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:39:36 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (1.5ms)
+Completed 200 OK in 364ms (Views: 363.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-024bb1e2278c607939a346321fa575186e03ec4206e7e7de88c68ecd1ea646c0.css?body=1" for 127.0.0.1 at 2015-11-26 12:39:37 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (4.0ms)
+Completed 200 OK in 380ms (Views: 379.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6f6acd691c05e0058e85f5d8cbdbddf8c8a3a17f807e18bb6b092abbd4df09cf.css?body=1" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:45:14 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:45:35 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (1.0ms)
+Completed 200 OK in 347ms (Views: 346.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-f0304c5b2afaf6594f325195fb201f5add8fe4169addf0303f202ac7ce271417.css?body=1" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:45:36 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 35.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6f6acd691c05e0058e85f5d8cbdbddf8c8a3a17f807e18bb6b092abbd4df09cf.css?body=1" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:45:49 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (1.3ms)
+Completed 200 OK in 412ms (Views: 411.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-f6a5b20c808205045d650be2c79813b8baf405bfe00bf46938b2adce8aa964db.css?body=1" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:47:09 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (2.5ms)
+Completed 200 OK in 40ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-f6a5b20c808205045d650be2c79813b8baf405bfe00bf46938b2adce8aa964db.css?body=1" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:47:30 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:47:58 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.1ms)
+WARNING on line 16 of /home/lmafra/Documentos/concentra-df/app/assets/stylesheets/pages/easteregg.sass:
+This selector doesn't have any properties and will not be rendered.
+
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Invalid CSS after "background-size:": expected pseudoclass or pseudoelement, was "100%"):
+    1: html
+    2:   head
+    3:     title Site Concentra
+    4:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    5:     = csrf_meta_tags
+    6: 
+    7:   body
+  app/assets/stylesheets/pages/easteregg.sass:16
+  app/assets/stylesheets/application.sass:64
+  app/views/layouts/application.slim:4:in `_app_views_layouts_application_slim__2879215251209203668_40281620'
+
+
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lmafra/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.5ms)
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 357ms (Views: 356.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4b429d65f63d44eef4c55f633898269ab7c38532f719c4b08bfc8f4e0eba7ca3.css?body=1" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:48:10 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:48:35 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 353ms (Views: 352.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4ff27a6373808eeb02b91d2b8d690f81c346de9339057a3a08e7f52f8641f254.css?body=1" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:48:36 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 390ms (Views: 389.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-24dfb49d1d810817f8790dffd43e2e815fac9fef306c7aa0f0831923da2097fc.css?body=1" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:48:58 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:49:28 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 404ms (Views: 404.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-fefbd0614969c1648d13c9e4c6544f4a84fd4d5afc546919f2cda5b23a8bf5c8.css?body=1" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:49:29 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 358ms (Views: 357.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-fffacee38d32fb1a082d2698e570ce3c3506e15dbdc0a6ebe64af1c6bd7afffc.css?body=1" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:49:41 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 357ms (Views: 356.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-ba102fd3d4674d85b4e58e53cdaf3214a72a92dd82e5ac4194d0adb4634779bb.css?body=1" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:50:32 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:51:01 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 368ms (Views: 367.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-99d9dff4d8b2ecb477bac286a08f9d8a6d7a1469c82785f0c5ab874077fc5b35.css?body=1" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:51:02 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 353ms (Views: 353.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-709c667a01149b418ca58388a9209ffe6ecf796b69aaf1ec6d293747d65fc5c2.css?body=1" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:51:11 -0200
+
+
+Started GET "/pages/easteregg" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"easteregg"}
+  Rendered pages/easteregg.slim within layouts/application (0.0ms)
+Completed 200 OK in 368ms (Views: 367.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-0c498f0ddaa91af819c60a50d34f467c1a0a3b2e3d45d7ca91e29f6d781ab8d4.css?body=1" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+
+
+Started GET "/assets/components/countdown.self-e7f637e88d35eabb5eb33a1a9b09264c5b5cef49f50a07ef21e487d36e924f0d.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+
+
+Started GET "/assets/components/easteregg.self-21b02125ef0d9e0da232d3ba293e94a262415e0277701ffaae38379db93d250c.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+
+
+Started GET "/assets/pata_facto-8ca5a7e88bec8ef1c4ddea60bf783c9e5955a428ea244b773f2b17430fc72053.png" for 127.0.0.1 at 2015-11-26 12:51:45 -0200
+
+
+Started GET "/assets/GIF_elefantes-778033f5c0fc5c60815ddf8ef8f593bfc7169aaba92b7c3f1251f01f4aa970f1.gif" for 127.0.0.1 at 2015-11-26 12:51:45 -0200

@@ -1,0 +1,26 @@
+Fluxo das features do Concentra
+	feature/vacancy
+		Transferência de vagas de (não) federada para (não) federada com registro na lista e mesma modalidade 
+			João é um empresário júnior de EJ (não) federada com vaga no evento
+			Fernando é um empresário júnior de EJ (não) federada sem vaga no evento, mas presente na lista de espera
+				João transfere a vaga para Fernando. João preenche campo de email com o email da Fernando. João confirma se quer ir para o lugar do Fernando na lista de espera. Fernando ganha vaga do João. João vai para a lista de espera no lugar do Fernando. 
+		Transferência de vagas de federada para federada sem registro na lista e mesma modalidade
+			João é um empresário júnior de EJ federada com vaga no evento
+			Fernando é um empresário júnior de EJ federada sem vaga no evento e não está na lista
+				João não pode transferir porque Fernando precisa ter um registro no sistema
+		Transferência de vagas de federada para federada com registro na lista, mas modalidades diferentes
+			João é um empresário júnior de EJ federada com vaga de hotel no evento
+			Fernando é um empresário júnior de EJ federada sem vaga de hostel no evento
+				João transfere a vaga para Fernando. João preenche campo de email com o email da Fernando. João confirma se quer ir para o lugar do Fernando na lista de espera e se quer ficar na modalidade de Fernando. Fernando ganha vaga do João. João vai para a lista de espera no lugar do Fernando.
+		Transferência de vagas de federada para não federada com registro na lista
+			João é um empresário júnior de EJ federada com vaga no evento
+			Fernando é um empresário júnior de EJ não federada sem vaga no evento
+				João não pode transferir porque Fernando é de EJ não federada
+		Transferência de vagas de não federada para federada com registro na lista
+			João é um empresário júnior de EJ não federada com vaga no evento
+			Fernando é um empresário júnior de EJ federada sem vaga no evento
+
+
+	feature/hosp
+		Escolha de quarto
+	feature/waiting_list
