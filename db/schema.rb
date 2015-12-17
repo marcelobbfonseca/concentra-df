@@ -40,13 +40,6 @@ ActiveRecord::Schema.define(version: 20151202003925) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "jedis", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "jes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -68,16 +61,6 @@ ActiveRecord::Schema.define(version: 20151202003925) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
-
-  create_table "padawans", force: :cascade do |t|
-    t.integer  "jedi_id"
-    t.string   "name"
-    t.integer  "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "padawans", ["jedi_id"], name: "index_padawans_on_jedi_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"

@@ -16,6 +16,9 @@
     .subscription__vacancy
       span Parabéns você conseguiu a vaga.
 
+    = link_to 'Sign out', destroy_user_session_path, :method => :delete
+
+
     .subscription__waiting-list
       h4 Você está na fila de espera.
       h4.waiting-list__position
