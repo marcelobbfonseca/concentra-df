@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require components/countdown
+//= require components/transfer
 //= require components/choice/send-choice
 //= require components/choice/mf-choice
 

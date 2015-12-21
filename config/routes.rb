@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :jes
   post '/vaga' => 'vacancy#create', as: :vacancy
+  post '/transfer' => 'vacancy#transfer'
   resources :vacancy
   resources :complements
   #root to: "test#index"
