@@ -1,4 +1,5 @@
 class VacancyController < ApplicationController
+  load_and_authorize_resource #parada do cancan. restricao definida no model: ability.
   def new
     @modality_filiations = ModalityFiliation.all
   end

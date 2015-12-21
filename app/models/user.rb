@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable,
            :omniauthable, :omniauth_providers => [:facebook]
-
+    #attr_accessible :admin #ignora isso por enquanto. tornar acessivel novo campo
     def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email
