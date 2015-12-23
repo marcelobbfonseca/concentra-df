@@ -23,6 +23,12 @@ class User < ActiveRecord::Base
           end
         end
     end
+    def admin
+
+    end
+    def admin?
+      @user.admin?
+    end
 
 
 end
