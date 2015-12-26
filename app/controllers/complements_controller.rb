@@ -1,4 +1,5 @@
 class ComplementsController < ApplicationController
+  load_and_authorize_resource #parada do cancan. restricao definida no model: ability.
   before_action :set_complement, only: [:show, :edit, :update, :destroy]
 
   # GET /complements

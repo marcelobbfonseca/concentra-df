@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource #parada do cancan. restricao definida no model: ability.
   before_action :authenticate_user!, :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
