@@ -8,6 +8,7 @@ class Ability
 	  	if user.admin?  #erro #verifica se eh o admin logado
 	  		can :manage, :all
 	   	else			#verifica se eh congressista logado
+	  		can :manage, Vacancy #pode escolher a vaga
 	  		can :read, :all
 	  	end
   end
