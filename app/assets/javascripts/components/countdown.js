@@ -2,7 +2,7 @@
 var openRegistration = '';
 
 // Data final dos contadores
-openRegistration = 'February 15 2015 02:35:00 GMT-02:00';
+openRegistration = 'December 07 2015 22:49:59 GMT-02:00';
 
 // Inicialização dos contadores
 initializeClock( '.countdown-clock', openRegistration );
@@ -45,6 +45,7 @@ function initializeClock( clockClass, deadline ) {
     if( t.total <= 0 ) {
       clearInterval( timeinterval );
       $( '.countdown-clock' ).hide();
+      $( '.subscription' ).show();
     }
 
   }

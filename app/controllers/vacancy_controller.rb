@@ -46,9 +46,31 @@ class VacancyController < ApplicationController
     end
   end
 
+  def transfer
+    @email = transfer_params
+    @vacancy  = Vacancy.where(user: current_user)
+    @recipient = User.where(email: @email)
+    if @recipient.count == 1
+      @vacancy.user(@recipient)
+      render json: 'n deu'
+    end
+    #   if @vacancy.save
+    #     render json: @vacancy
+    #   else
+    #     render json: @vacancy.errors, status: :unprocessable_entity
+    #   end
+    # else
+    render json: 'nao entrou'
+    # end
+  end
+
   private
 
   def vacancy_params
     params.require(:vacancy).permit(:modality_filiation_id)
+  end
+
+  def transfer_params
+    params.require(:transfer).permit(:recipient_email)
   end
 end

@@ -17,7 +17,9 @@
 </script>
 <!-- AQUI ENTRA TODOS OS SCRIPTS DO HEADER -->
 
-<%= render "pages/partials/countdown" %>
+<input type="text" class="transfer__input" />
+<button class="transfer__button">Transferir</button>
+<%= link_to 'Vaga', new_vacancy_path %>
 
 <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 
@@ -27,7 +29,6 @@
 
 <div id="status">
 </div>
-<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 
 <script type="text/javascript">
 function sair(){
