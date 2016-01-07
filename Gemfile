@@ -50,8 +50,9 @@ group :development do
   gem 'spring'
 end
 
-gem 'devise'
-gem 'omniauth-facebook'
+gem 'devise'	#gema para autenticacoes loucas
+gem 'omniauth-facebook' #gema para logar com caralivro
+gem 'cancan' #gema para o controle dos poderes do usuario
 
 
 

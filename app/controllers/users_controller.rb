@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource #parada do cancan. restricao definida no model: ability.
   before_action :authenticate_user!, :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -70,6 +71,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:password)
+      params.require(:user).permit(:password , :admin)
     end
+
+
 end
