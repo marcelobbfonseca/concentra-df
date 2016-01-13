@@ -7,8 +7,8 @@ $('.transfer__button').click(function() {
     success: function(data){
       console.log(data);
     },
-    error: function(){
-      console.log('Error');
+    error: function(data){
+      console.log(data);
     }
   });
 });

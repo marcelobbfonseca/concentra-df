@@ -5,21 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#vacancies = Vacancy.create[{}]
-# => Modality
-#      t.string :name
-#      t.integer :vacancy
-#
 
 
-Filiation.create(name:'Bumbum guloso')
-Filiation.create(name:'Bunda')
-
-Modality.create(name: 'Bumbum guloso', vacancy: 1)
-Modality.create(name: 'Bumbum poderoso', vacancy: 2)
-Modality.create(name: 'Engolidor de espadas', vacancy: 3)
-
-ModalityFiliation.create(modality_id: 1, filiation_id:1, name: 'Bumbum guloso', price: 8000 )
-ModalityFiliation.create(modality_id: 2, filiation_id:2, name: 'Bumbum Poderoso', price: 8001 )
-ModalityFiliation.create(modality_id: 3, filiation_id:3, name: 'Engolidor de espadas', price: 2 ) 
+Filiation.create(name: 'EJ Federada')
+Filiation.create(name: 'EJ Não-Federada')
+Modality.create(name: 'Hotel', vacancy: 100)
+Modality.create(name: 'Teste com 5 vagas', vacancy: 5)
+Modality.create(name: 'Teste com 1 vaga', vacancy: 1)
+ModalityFiliation.create(modality_id: 1, filiation_id: 1, name: 'EJ Federada Hotel', price: 350)
+ModalityFiliation.create(modality_id: 1, filiation_id: 2, name: 'EJ Não Federada Hotel', price: 370)
+ModalityFiliation.create(modality_id: 2, filiation_id: 1, name: 'Teste com 5 vagas EJ Federada', price: 170)
+ModalityFiliation.create(modality_id: 2, filiation_id: 2, name: 'Teste com 5 vagas EJ Não Federada', price: 190)
+ModalityFiliation.create(modality_id: 3, filiation_id: 1, name: 'Teste com 1 vaga EJ Federada', price: 190)
+ModalityFiliation.create(modality_id: 3, filiation_id: 2, name: 'Teste com 1 vaga EJ Não Federada', price: 210)
+User.create(password: '12345678', email: 'admin@concentradf.com.br',admin: true)
 
