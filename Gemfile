@@ -50,9 +50,9 @@ group :development do
   gem 'spring'
 end
 
-gem 'devise'	#gema para autenticacoes loucas
+gem 'devise'			#gema para autenticacoes loucas
 gem 'omniauth-facebook' #gema para logar com caralivro
-gem 'cancan' #gema para o controle dos poderes do usuario
-
+gem 'cancan' 			#gema para o controle dos poderes do usuario
+gem 'gerencianet' 		#gema da API gerencianet p/ gerar boleto
 
 
