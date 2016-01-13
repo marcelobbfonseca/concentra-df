@@ -10,10 +10,16 @@
 #      t.string :name
 #      t.integer :vacancy
 #
-Modality_filiation.create(modality_id: 1, filiation_id:1, name: 'Bumbum guloso', price: 8000 )
-Modality_filiation.create(modality_id: 2, filiation_id:2, name: 'Bumbum Poderoso', price: 8001 )
-Modality_filiation.create(modality_id: 3, filiation_id:3, name: 'Engolidor de espadas', price: 2 ) 
+
+
+Filiation.create(name:'Bumbum guloso')
+Filiation.create(name:'Bunda')
 
 Modality.create(name: 'Bumbum guloso', vacancy: 1)
 Modality.create(name: 'Bumbum poderoso', vacancy: 2)
 Modality.create(name: 'Engolidor de espadas', vacancy: 3)
+
+ModalityFiliation.create(modality_id: 1, filiation_id:1, name: 'Bumbum guloso', price: 8000 )
+ModalityFiliation.create(modality_id: 2, filiation_id:2, name: 'Bumbum Poderoso', price: 8001 )
+ModalityFiliation.create(modality_id: 3, filiation_id:3, name: 'Engolidor de espadas', price: 2 ) 
+
