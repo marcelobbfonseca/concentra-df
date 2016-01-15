@@ -34,20 +34,30 @@ class GerencianetController < ApplicationController
       items: [{
         name: "Vaga EJ federada",
         value: 1000,
-        amount: 2
+        amount: 1
       }],
+      metadata: {
+        custom_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2",
+        notification_url: "http://localhost:3000" #receber notificacao
+      },
+      post_office_service: {
+        send_to: "customer" #pode ser seller ou customer. Seller: manda pra mim <3
+      },
       shippings: [{
         name: "",   #nao tem frete
-        value: 0
+        value: 0    #valor do frete
       }]
     }
      
     gerencianet = Gerencianet.new(options)
-    gerencianet.create_charge(body: body)
-
+    resposta = gerencianet.create_charge(body: body)   #PEGANDO A resposta aqui!!
+    resposta.inspect
+    #precisa linkar uma view! missing template!
+    #redirect_to boleto 
   end
 
   def boleto #boleto.
+     
     # id e segredo da minha conta de API no gerencianet(marcelinho)
     options = { 
       client_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2", 
@@ -58,7 +68,7 @@ class GerencianetController < ApplicationController
     tomorrow = Date.today + 1  
      
     params = {
-      id: 2365 # id da charge a ser paga
+      id: 4000 # id da charge a ser paga
     }
      #precisa de  User: Nome, email.  Complemento:cpf, nascimento e telefone
     body = {
@@ -78,6 +88,7 @@ class GerencianetController < ApplicationController
      
     gerencianet = Gerencianet.new(options)
     gerencianet.pay_charge(params: params, body: body)
+
   end
 
   def gerar_boleto
@@ -114,5 +125,6 @@ class GerencianetController < ApplicationController
     xml.gsub(/[ \t\n]/, '')                                                 #retirar espaçamentos. precisa ta cru
     url = "https://testeintegracao.gerencianet.com.br/xml/boleto/emite/xml" #URL onde fará a requisicao via post
     token = "f5fb957d43ad3050d9c1b4cc3f6fe160"                              #token da aplicacao
+    #fazer requisicao POST para testeintegracao
   end
 end
