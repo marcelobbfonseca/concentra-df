@@ -17,7 +17,7 @@ class GerencianetController < ApplicationController
   # => cpfcnpj: Meio obvio esse. Deve conter 11 ou 14 char sendo apenas numeros
   # => cel: Celular do cliente com DDD. 10 ou 11 digitos.
   # => Descricao: descricao do item envolvido
-  # => valor: Valor do item em centavos
+  # => valor: Valor do item em centavos .IMPORTANTE: VALORES SAO EM CENTAVOS: 150 = R$1,50
   # => qtde: QUantidade desse item
   #
   #
@@ -28,13 +28,12 @@ class GerencianetController < ApplicationController
       client_secret: "Client_Secret_6b5fb0c68919ec003aebcaaa2c96fd9987692635",
       sandbox: true #modo teste verdadeiro. NAO TROCA ESSA PORRA!
     }
-    #IMPORTANTE: VALORES SAO EM CENTAVOS: 150 = R$1,50
-    #precisa de descricao da modalidade(nome), valor e quantidade(no caso 1)
+  
     body = {
       items: [{
-        name: "Vaga EJ federada",
-        value: 1000,
-        amount: 1
+        name: "Vaga EJ federada",     #descricao
+        value: 1000,                  #valor
+        amount: 1                     #quantidade comprada
       }],
       metadata: {
         custom_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2",
@@ -54,6 +53,7 @@ class GerencianetController < ApplicationController
     resposta.inspect
     #precisa linkar uma view! missing template!
     #redirect_to boleto 
+    render 'transacao'
   end
 
   def boleto #boleto.
