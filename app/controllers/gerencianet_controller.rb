@@ -35,30 +35,22 @@ class GerencianetController < ApplicationController
         value: 1000,                  #valor
         amount: 1                     #quantidade comprada
       }],
-      metadata: {
-        custom_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2",
-        notification_url: "http://localhost:3000" #receber notificacao
-      },
-      post_office_service: {
-        send_to: "customer" #pode ser seller ou customer. Seller: manda pra mim <3
-      },
       shippings: [{
-        name: "",   #nao tem frete
+        name: "sem vaga",   #nao tem frete
         value: 0    #valor do frete
       }]
     }
      
     gerencianet = Gerencianet.new(options)
-    resposta = gerencianet.create_charge(body: body)   #PEGANDO A resposta aqui!!
-    resposta.inspect
-    #precisa linkar uma view! missing template!
-    #redirect_to boleto 
+    @resposta = gerencianet.create_charge(body: body)   #PEGANDO A resposta aqui!!
+    
+     
     render 'transacao'
+    #como acessa os dados?
   end
 
   def boleto #boleto.
      
-    # id e segredo da minha conta de API no gerencianet(marcelinho)
     options = { 
       client_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2", 
       client_secret: "Client_Secret_6b5fb0c68919ec003aebcaaa2c96fd9987692635",
