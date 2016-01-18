@@ -24,9 +24,6 @@ class User < ActiveRecord::Base
         end
     end
 
-    def cpf? #acho que verifica campo de cpf vazio(usado para validar campo do boleto)
-      self.cpf.blank?
-    end
     def admin #precisa definir isso!!!! nao sei se esta certo
       !self.admin.blank?
     end
