@@ -48,30 +48,18 @@ class GerencianetController < ApplicationController
      
     gerencianet = Gerencianet.new(options)
     @resposta = gerencianet.create_charge(body: body)   #PEGANDO A resposta aqui!!
-    
-     
-    render 'transacao'
-    #como acessa os dados?
-  end
+    #TRANSACAO CRIADA! fim da transacao 
 
-  def boleto #boleto.
-     
-    options = { 
-      client_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2", 
-      client_secret: "Client_Secret_6b5fb0c68919ec003aebcaaa2c96fd9987692635",
-      sandbox: true #POR OBSEQUIO, NAO TROCAR ISSO PRA FALSO.
-    }
-     
     tomorrow = Date.today + 1  
      
     params = {
-      id: 4000 # id da charge a ser paga
+      id: @resposta['charge_id'] #4000 # id da charge a ser paga 
     }
      #precisa de  User: Nome, email.  Complemento:cpf, nascimento e telefone
-    body = {
+    corpo = {
       payment: {
         banking_billet: {
-          expire_at: tomorrow.strftime,
+          expire_at: @resposta['created_at'],    #@resposta['created_at'] tomorrow.strftime
           customer: {
             name: "Paulo Guina",
             email: "oldbuck@gerencianet.com.br",
@@ -82,10 +70,13 @@ class GerencianetController < ApplicationController
         }
       }
     }
+
+
+
      
     gerencianet = Gerencianet.new(options)
-    gerencianet.pay_charge(params: params, body: body)
-
+    @resposta_boleto = gerencianet.pay_charge(params: params, body: corpo)
+    render 'transacao'
   end
 
   def gerar_boleto

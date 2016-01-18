@@ -1,5 +1,16 @@
 <h3>Transação realizada com sucesso!</h3>
 <button id="btn-boleto" href="gerencianet/boleto" >Gerar Boleto</button>
 
-<p>Inspecionar: debug</p>
+<p>Inspecionar @resposta: debug</p>
 <%= @resposta.inspect %>
+<br>
+<span>@resposta['data']['created_at']:<% puts @resposta["data"]["created_at"]  %></span><br>
+<span>@resposta['code']:<% print resposta["code"] %></span>
+
+
+<br>
+<br>
+<br>
+<br>
+<p>Inspecionar @resposta_boleto: debug</p>
+<%= @resposta_boleto.inspect %>
