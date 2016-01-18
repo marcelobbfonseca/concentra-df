@@ -50,16 +50,16 @@ class GerencianetController < ApplicationController
     @resposta = gerencianet.create_charge(body: body)   #PEGANDO A resposta aqui!!
     #TRANSACAO CRIADA! fim da transacao 
 
-    tomorrow = Date.today + 1  
+    prazo = Date.today + 7  
      
     params = {
-      id: @resposta['charge_id'] #4000 # id da charge a ser paga 
+      id: @resposta["charge_id"] #4000 # id da charge a ser paga 
     }
      #precisa de  User: Nome, email.  Complemento:cpf, nascimento e telefone
     corpo = {
       payment: {
         banking_billet: {
-          expire_at: @resposta['created_at'],    #@resposta['created_at'] tomorrow.strftime
+          expire_at: prazo.strftime,    #@resposta['created_at'] tomorrow.strftime
           customer: {
             name: "Paulo Guina",
             email: "oldbuck@gerencianet.com.br",
