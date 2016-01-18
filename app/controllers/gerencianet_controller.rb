@@ -28,16 +28,21 @@ class GerencianetController < ApplicationController
       client_secret: "Client_Secret_6b5fb0c68919ec003aebcaaa2c96fd9987692635",
       sandbox: true #modo teste verdadeiro. NAO TROCA ESSA PORRA!
     }
-  
+    #Em ordem
+    #1.Descricao
+    #2.Valor
+    #3.Quantidade comprada
+    #4.Frete(no caso nao tem)
+    #5.Valor deo frete(no caso nao tem)
     body = {
       items: [{
-        name: "Vaga EJ federada",     #descricao
-        value: 1000,                  #valor
-        amount: 1                     #quantidade comprada
+        name: "Vaga EJ federada",     
+        value: 1000,                  
+        amount: 1                     
       }],
       shippings: [{
-        name: "sem vaga",   #nao tem frete
-        value: 0    #valor do frete
+        name: "sem vaga",   
+        value: 0    
       }]
     }
      
