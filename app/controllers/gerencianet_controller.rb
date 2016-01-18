@@ -73,7 +73,8 @@ class GerencianetController < ApplicationController
      
     gerencianet = Gerencianet.new(options)
     @resposta_boleto = gerencianet.pay_charge(params: params, body: body)
-    render 'transacao'
+    #render 'transacao'
+    redirect_to @resposta_boleto['data']['link']
   end
 
   def gerar_boleto
