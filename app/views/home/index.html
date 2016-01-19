@@ -22,8 +22,8 @@
 <%= link_to 'Vaga', new_vacancy_path %>
 
 <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
-
-
+<p>Para caso ja tenha selecionado a vaga na pre inscricao</p>
+<%= link_to 'Gerar Boleto', {controller:"gerencianet", action:"transacao"} %><br><br>
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
