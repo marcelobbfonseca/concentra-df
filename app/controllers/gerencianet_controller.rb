@@ -41,7 +41,7 @@ class GerencianetController < ApplicationController
         amount: 1                     
       }],
       shippings: [{
-        name: "sem vaga",   
+        name: "sem frete",   
         value: 0    
       }]
     }
@@ -62,7 +62,7 @@ class GerencianetController < ApplicationController
           expire_at: prazo.strftime,    #@resposta['created_at'] tomorrow.strftime
           customer: {
             name: "Paulo Guina", #OBR
-            email: "oldbuck@gerencianet.com.br",
+            email: "paulo_oco@delicia.com.br",
             cpf: "04267484171", #OBR
             birth: "1977-01-15",
             phone_number: "5144916523"
