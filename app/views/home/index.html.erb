@@ -16,14 +16,14 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 <!-- AQUI ENTRA TODOS OS SCRIPTS DO HEADER -->
-
+<p>Bem vindo <%= @user.email %></p>
 <input type="text" class="transfer__input" />
 <button class="transfer__button">Transferir</button>
 <%= link_to 'Vaga', new_vacancy_path %>
 
 <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 <p>Para caso ja tenha selecionado a vaga na pre inscricao</p>
-<%= link_to 'Gerar Boleto', {controller:"gerencianet", action:"transacao"}, :name => @name, :cpf =>@cpf %><br><br>   
+<%= link_to 'Gerar Boleto', {controller:"gerencianet", action:"transacao"}, :nome => @user.name, :cpf => @user.cpf %><br><br>   
 <%=  %>
 <!--{controller:"gerencianet", action:"transacao"} -->
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">

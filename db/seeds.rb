@@ -19,4 +19,3 @@ ModalityFiliation.create(modality_id: 2, filiation_id: 2, name: 'Teste com 5 vag
 ModalityFiliation.create(modality_id: 3, filiation_id: 1, name: 'Teste com 1 vaga EJ Federada', price: 190)
 ModalityFiliation.create(modality_id: 3, filiation_id: 2, name: 'Teste com 1 vaga EJ Não Federada', price: 210)
 User.create(password: '12345678', email: 'admin@concentradf.com.br',admin: true)
-
