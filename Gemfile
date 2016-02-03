@@ -31,8 +31,6 @@ gem 'high_voltage', '~> 2.4.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'high_voltage', '~> 2.4.0'
-
 gem 'slim', '~> 3.0.6'
 
 gem 'simple_form'

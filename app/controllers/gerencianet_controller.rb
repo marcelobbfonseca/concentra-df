@@ -51,7 +51,7 @@ class GerencianetController < ApplicationController
     #TRANSACAO CRIADA! fim da transacao 
 
     prazo = Date.today + 7  
-     
+    abort strong_params[:nome].inspect
     params = {
       id: @resposta['data']['charge_id'] #4000 # id da charge a ser paga 
     }
