@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    has_one :vacancy
+    has_one :vacancy #, complement
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
