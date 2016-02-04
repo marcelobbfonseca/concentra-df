@@ -51,7 +51,7 @@ class GerencianetController < ApplicationController
     #TRANSACAO CRIADA! fim da transacao 
 
     prazo = Date.today + 7  
-    abort strong_params[:nome].inspect
+    abort user.inspect
     params = {
       id: @resposta['data']['charge_id'] #4000 # id da charge a ser paga 
     }
@@ -75,6 +75,27 @@ class GerencianetController < ApplicationController
     @resposta_boleto = gerencianet.pay_charge(params: params, body: body)
     #render 'transacao'
     redirect_to @resposta_boleto['data']['link']
+  end
+
+  def notificar
+
+     
+    options = {
+      client_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2", 
+      client_secret: "Client_Secret_6b5fb0c68919ec003aebcaaa2c96fd9987692635",
+      sandbox: true
+    }
+     
+    # Este token será recebido em sua variável que representa os parâmetros do POST
+    # Ex.: req.body['notification']
+     
+    params = {
+      token: "token_da_notificacao"
+    }
+     
+    gerencianet = Gerencianet.new(options)
+    gerencianet.get_notification(params: params)
+
   end
 
   def gerar_boleto
