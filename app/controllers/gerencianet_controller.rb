@@ -51,7 +51,11 @@ class GerencianetController < ApplicationController
     #TRANSACAO CRIADA! fim da transacao 
 
     prazo = Date.today + 7  
-    abort user.inspect
+    
+    nome = params[:nome_usuario]
+    cpf = params[:cpf]
+    email = params[:email]
+
     params = {
       id: @resposta['data']['charge_id'] #4000 # id da charge a ser paga 
     }
@@ -61,9 +65,9 @@ class GerencianetController < ApplicationController
         banking_billet: {
           expire_at: prazo.strftime,    #@resposta['created_at'] tomorrow.strftime
           customer: {
-            name: "Paulo Guina", #OBR
-            email: "paulo_oco@delicia.com.br",
-            cpf: "04267484171", #OBR
+            name: nome, #OBR
+            email: email,
+            cpf: cpf, #OBR
             birth: "1977-01-15",
             phone_number: "5144916523"
           }
