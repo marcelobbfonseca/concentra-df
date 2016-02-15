@@ -34,6 +34,8 @@ class GerencianetController < ApplicationController
     #3.Quantidade comprada
     #4.Frete(no caso nao tem)
     #5.Valor deo frete(no caso nao tem)
+
+  #se o congressista nao gerou nenhum boleto antes faca isso:
     body = {
       items: [{
         name: "Vaga EJ federada",     
@@ -77,12 +79,24 @@ class GerencianetController < ApplicationController
      
     gerencianet = Gerencianet.new(options)
     @resposta_boleto = gerencianet.pay_charge(params: params, body: body)
-    #render 'transacao'
+
+    #render 'transacao' usado para testes
+
+    #etapa 3 notificacao
+    params = {
+      token: "token_da_notificacao" #@resposta_boleto['data']['status']
+    } 
+
+    gerencianet = Gerencianet.new(options)
+    @resposta_notificacao = gerencianet.get_notification(params: params)
+
+
     redirect_to @resposta_boleto['data']['link']
+  #senao faca:
+    #procurar boleto e verificar status
   end
 
   def notificar
-
      
     options = {
       client_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2", 
@@ -94,11 +108,11 @@ class GerencianetController < ApplicationController
     # Ex.: req.body['notification']
      
     params = {
-      token: "token_da_notificacao"
+      token: "token_da_notificacao" #@resposta_boleto['data']['status']
     }
      
     gerencianet = Gerencianet.new(options)
-    gerencianet.get_notification(params: params)
+    @resposta_notificacao = gerencianet.get_notification(params: params)
 
   end
 
