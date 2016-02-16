@@ -23,7 +23,7 @@
 
 <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 <p>Para caso ja tenha selecionado a vaga na pre inscricao</p>
-<%= button_to 'Gerar Boleto', {:controller => "gerencianet", :action => "transacao", :nome_usuario => @complemento.name, :cpf => @complemento.cpf, :email => @user.email } , :method=>:post  %><br><br>   
+<%= button_to 'Gerar Boleto', {:controller => "gerencianet", :action => "transacao", :nome_usuario => @complemento.name, :cpf => @complemento.cpf, :email => @user.email, :id_user => @user.id } , :method=>:post  %><br><br>   
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>

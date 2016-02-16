@@ -13,8 +13,10 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
-  #get '/gerartransacao' => 'gerencianet#transacao', :as => :boleto_path #criar transaçao
+  
   post '/gerartransacao' => 'gerencianet#transacao', :as => :boleto_path
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

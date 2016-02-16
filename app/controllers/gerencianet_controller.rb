@@ -35,7 +35,9 @@ class GerencianetController < ApplicationController
     #4.Frete(no caso nao tem)
     #5.Valor deo frete(no caso nao tem)
 
-  #se o congressista nao gerou nenhum boleto antes faca isso:
+  #se o congressista nao gerou nenhum boleto antes faca isso:(verificar se tem complemento charge_id)
+    user_id = params[:id_user]
+
     body = {
       items: [{
         name: "Vaga EJ federada",     
@@ -61,7 +63,7 @@ class GerencianetController < ApplicationController
     params = {
       id: @resposta['data']['charge_id'] #4000 # id da charge a ser paga 
     }
-     #precisa de  User: Nome, email.  Complemento:cpf, nascimento e telefone
+
     body = {
       payment: {
         banking_billet: {
@@ -79,18 +81,12 @@ class GerencianetController < ApplicationController
      
     gerencianet = Gerencianet.new(options)
     @resposta_boleto = gerencianet.pay_charge(params: params, body: body)
+    #completo etapa 2
 
     #render 'transacao' usado para testes
 
-    #etapa 3 notificacao
-    params = {
-      token: "token_da_notificacao" #@resposta_boleto['data']['status']
-    } 
 
-    gerencianet = Gerencianet.new(options)
-    @resposta_notificacao = gerencianet.get_notification(params: params)
-
-
+    #complemento do usuario recebe o charge_id
     redirect_to @resposta_boleto['data']['link']
   #senao faca:
     #procurar boleto e verificar status
@@ -106,9 +102,12 @@ class GerencianetController < ApplicationController
      
     # Este token será recebido em sua variável que representa os parâmetros do POST
     # Ex.: req.body['notification']
-     
+    body = {      
+              notification_url: "localhost:3000", #obrigatorio ter http ou https
+              custom_id: "1"           
+    }
     params = {
-      token: "token_da_notificacao" #@resposta_boleto['data']['status']
+      token: body['notification_url'] #@resposta_boleto['data']['status']
     }
      
     gerencianet = Gerencianet.new(options)
