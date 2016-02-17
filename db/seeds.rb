@@ -18,9 +18,9 @@ ModalityFiliation.create(modality_id: 2, filiation_id: 1, name: 'Teste com 5 vag
 ModalityFiliation.create(modality_id: 2, filiation_id: 2, name: 'Teste com 5 vagas EJ Não Federada', price: 190)
 ModalityFiliation.create(modality_id: 3, filiation_id: 1, name: 'Teste com 1 vaga EJ Federada', price: 190)
 ModalityFiliation.create(modality_id: 3, filiation_id: 2, name: 'Teste com 1 vaga EJ Não Federada', price: 210)
-User.create(password: '12345678', email: 'admin@concentradf.com.br',admin: true)
+#User.create(password: '12345678', email: 'admin@concentradf.com.br',admin: true)
 
 manolo = User.find_by_email("pau@gmail.com")
 Complement.create(name: 'Paulo Guina', cpf: '82797256360', user_id: manolo.id)
-
+Vacancy.create(user_id: 1, modality_filiation_id: 1, waiting_list: false)
 

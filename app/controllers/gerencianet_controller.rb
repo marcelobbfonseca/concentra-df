@@ -36,63 +36,73 @@ class GerencianetController < ApplicationController
     #5.Valor deo frete(no caso nao tem)
 
   #se o congressista nao gerou nenhum boleto antes faca isso:(verificar se tem complemento charge_id)
-    user_id = params[:id_user]
-
-    body = {
-      items: [{
-        name: "Vaga EJ federada",     
-        value: 2000,                  
-        amount: 1                     
-      }],
-      shippings: [{
-        name: "sem frete",   
-        value: 0    
-      }]
-    }
-     
-    gerencianet = Gerencianet.new(options)
-    @resposta = gerencianet.create_charge(body: body)   #PEGANDO A resposta aqui!!
-    #TRANSACAO CRIADA! fim da transacao 
-
-    prazo = Date.today + 7  
     
-    nome = params[:nome_usuario]
-    cpf = params[:cpf]
-    email = params[:email]
+    idUsuario = params[:id_user]
+    
+    #encontra a modalidade pela vaga do usuario
+    vaga = Vacancy.find_by_user_id(idUsuario)
+    modalidade = ModalityFiliation.find_by_filiation_id(vaga.modality_filiation_id)
 
-    params = {
-      id: @resposta['data']['charge_id'] #4000 # id da charge a ser paga 
-    }
+    #se o usuario ja tem uma transacao ele cai para notificacao
+    if vaga.transacao_id
 
-    body = {
-      payment: {
-        banking_billet: {
-          expire_at: prazo.strftime,    # 7 dias
-          customer: {
-            name: nome, #OBR
-            email: email,
-            cpf: cpf, #OBR
-            birth: "1977-01-15",
-            phone_number: "5144916523"
+      abort "testar essa parte no heroku"
+      notificar
+
+    else
+
+      body = {
+        items: [{
+          name: modalidade.name,  # modalidade.nome
+          value: modalidade.price,      #modalidade.price            
+          amount: 1                     
+        }],
+        shippings: [{
+          name: "sem frete",   
+          value: 0    
+        }]
+      }
+       
+      gerencianet = Gerencianet.new(options)
+      @resposta = gerencianet.create_charge(body: body)   #PEGANDO A resposta aqui!!
+      #TRANSACAO CRIADA! fim da transacao 
+
+      prazo = Date.today + 7  
+      
+      nome = params[:nome_usuario]
+      cpf = params[:cpf]
+      email = params[:email]
+
+      params = {
+        id: @resposta['data']['charge_id'] #4000 # id da charge a ser paga 
+      }
+
+      body = {
+        payment: {
+          banking_billet: {
+            expire_at: prazo.strftime,    # 7 dias
+            customer: {
+              name: nome, #OBR
+              email: email,
+              cpf: cpf, #OBR
+              birth: "1977-01-15",
+              phone_number: "5144916523"
+            }
           }
         }
       }
-    }
-     
-    gerencianet = Gerencianet.new(options)
-    @resposta_boleto = gerencianet.pay_charge(params: params, body: body)
-    #completo etapa 2
+       
+      gerencianet = Gerencianet.new(options)
+      @resposta_boleto = gerencianet.pay_charge(params: params, body: body)
+      #completo etapa 2
 
-    #render 'transacao' usado para testes
+      #render 'transacao' usado para testes
 
-    #complemento do usuario recebe o charge_id
-    @complemento = Complement.find_by_user_id(current_user.id)
-    #@complemento.transacao_id = @resposta['data']['charge_id']
-    @complemento.update_attribute(:transacao_id, @resposta['data']['charge_id'])
+      #vaga do usuario recebe o charge_id(id de transacao do boleto)
+      vaga.update_attribute(:transacao_id, @resposta['data']['charge_id'])
 
-    redirect_to @resposta_boleto['data']['link']
-  #senao faca:
-    #procurar boleto e verificar status
+      redirect_to @resposta_boleto['data']['link']
+    end
   end
 
   def notificar
@@ -117,9 +127,9 @@ class GerencianetController < ApplicationController
     @resposta_notificacao = gerencianet.get_notification(params: params)
 
   end
-
+=begin
   def gerar_boleto
-    #xml a ser enviado
+   
     xml = "<boleto>  
             <token>OBR</token>
             <clientes>
@@ -154,4 +164,5 @@ class GerencianetController < ApplicationController
     token = "f5fb957d43ad3050d9c1b4cc3f6fe160"                              #token da aplicacao
     #fazer requisicao POST para testeintegracao
   end
+=end
 end
