@@ -86,6 +86,10 @@ class GerencianetController < ApplicationController
     #render 'transacao' usado para testes
 
     #complemento do usuario recebe o charge_id
+    @complemento = Complement.find_by_user_id(current_user.id)
+    #@complemento.transacao_id = @resposta['data']['charge_id']
+    @complemento.update_attribute(:transacao_id, @resposta['data']['charge_id'])
+
     redirect_to @resposta_boleto['data']['link']
   #senao faca:
     #procurar boleto e verificar status
@@ -144,7 +148,7 @@ class GerencianetController < ApplicationController
               </item>
             </itens>
             <vencimento>OPT</vencimento>
-          </boleto>"
+          </boleto>"@complemento.transacao_id = @resposta['data']['charge_id']
     xml.gsub(/[ \t\n]/, '')                                                 #retirar espaçamentos. precisa ta cru
     url = "https://testeintegracao.gerencianet.com.br/xml/boleto/emite/xml" #URL onde fará a requisicao via post
     token = "f5fb957d43ad3050d9c1b4cc3f6fe160"                              #token da aplicacao
