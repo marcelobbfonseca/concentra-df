@@ -41,7 +41,7 @@ class GerencianetController < ApplicationController
     body = {
       items: [{
         name: "Vaga EJ federada",     
-        value: 1000,                  
+        value: 2000,                  
         amount: 1                     
       }],
       shippings: [{
@@ -67,7 +67,7 @@ class GerencianetController < ApplicationController
     body = {
       payment: {
         banking_billet: {
-          expire_at: prazo.strftime,    #@resposta['created_at'] tomorrow.strftime
+          expire_at: prazo.strftime,    # 7 dias
           customer: {
             name: nome, #OBR
             email: email,
@@ -84,7 +84,6 @@ class GerencianetController < ApplicationController
     #completo etapa 2
 
     #render 'transacao' usado para testes
-
 
     #complemento do usuario recebe o charge_id
     redirect_to @resposta_boleto['data']['link']
