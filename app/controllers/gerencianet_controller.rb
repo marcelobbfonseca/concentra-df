@@ -5,7 +5,9 @@ class GerencianetController < ApplicationController
   #--------------------------------------------------------------------------
   #duas etapas. 1-fazer transacao e 2-escolha se boleto ou cartao
   #--------------------------------------------------------------------------
-  # token: f5fb957d43ad3050d9c1b4cc3f6fe160 
+  # salvação: http://suporte.mikweb.com.br/kb/articles/4-integrar-com-gerencianet
+  # nome:concentradf token:afd498372043769ffe9114cd5601c030
+  #
   # client_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2" 
   # client_secret: "Client_Secret_6b5fb0c68919ec003aebcaaa2c96fd9987692635"
   #
@@ -43,6 +45,11 @@ class GerencianetController < ApplicationController
     vaga = Vacancy.find_by_user_id(idUsuario)
     modalidade = ModalityFiliation.find_by_filiation_id(vaga.modality_filiation_id)
 
+    #validando entrada, caso o usuario nao tenha vaga vai cair aqui
+    unless vaga
+      abort "voce nao tem uma vaga!"
+    end
+
     #se o usuario ja tem uma transacao ele cai para notificacao
     if vaga.transacao_id
 
@@ -51,10 +58,14 @@ class GerencianetController < ApplicationController
 
     else
 
+      # ".to_i" e o "* 100" sao pra corrigir o valor pro padrao do gerencianet. NAO TROQUE ISSO 
+      precoCerto = modalidade.price * 100
+      precoCerto.to_i
+
       body = {
         items: [{
           name: modalidade.name,  # modalidade.nome
-          value: modalidade.price,      #modalidade.price            
+          value: precoCerto,             
           amount: 1                     
         }],
         shippings: [{
@@ -106,21 +117,9 @@ class GerencianetController < ApplicationController
   end
 
   def notificar
-     
-    options = {
-      client_id: "Client_Id_2bad46375dd5d0081c39bbace297682e968821b2", 
-      client_secret: "Client_Secret_6b5fb0c68919ec003aebcaaa2c96fd9987692635",
-      sandbox: true
-    }
-     
-    # Este token será recebido em sua variável que representa os parâmetros do POST
-    # Ex.: req.body['notification']
-    body = {      
-              notification_url: "localhost:3000", #obrigatorio ter http ou https
-              custom_id: "1"           
-    }
+    #se der ruim, adicionar o charge id aos params que nem na linha 83/85
     params = {
-      token: body['notification_url'] #@resposta_boleto['data']['status']
+      token: "http://concentradf.nomedosite.com.br/confirmar_fatura_gn" #@resposta_boleto['data']['status']
     }
      
     gerencianet = Gerencianet.new(options)
