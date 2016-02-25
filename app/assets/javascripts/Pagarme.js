@@ -1,5 +1,5 @@
 $(document).ready(function() { // quando o jQuery estiver carregado...
-    PagarMe.encryption_key = "ek_test_Ec8KhxISQ1tug1b8bCGxC2nXfxqRmk";
+    PagarMe.encryption_key = "ek_test_8Iii0BHIsQNJTQ8XPp3ZlLboun312Z";
 
     var form = $("#payment_form");
 
