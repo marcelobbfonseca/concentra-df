@@ -23,10 +23,22 @@
 
 <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 <p>Para caso ja tenha selecionado a vaga na pre inscricao</p>
+
+<% if @complemento!=nil %>
 <p>Opções de pagamento:</p>
+
+ 
 <%= button_to 'Gerar Boleto', {:controller => "gerencianet", :action => "transacao", :nome_usuario => @complemento.name, :cpf => @complemento.cpf, :email => @user.email, :id_user => @user.id } , :method=>:post  %><br>
 
-<%= button_to 'Cartao de Crédito', {:controller => "pagarme", :action => "paginacartao"} , :method=>:post  %><br><br>   
+<%= button_to 'Cartao de Crédito', {:controller => "pagarme", :action => "paginacartao"} , :method=>:post  %>
+<%else%>
+<p>Escolha uma vaga para acessar as opcoes de pagamento</p>
+
+<button type="button" disabled>Gerar boleto</button><br><br>
+
+<button type="button" disabled>Cartão de crédito</button><br>
+<%end%>
+<br><br>   
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
