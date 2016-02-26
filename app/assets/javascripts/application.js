@@ -16,4 +16,4 @@
 //= require components/transfer
 //= require components/choice/send-choice
 //= require components/choice/mf-choice
-//= require Pagarme.js
+//= require Pagarme

@@ -43,7 +43,7 @@ class GerencianetController < ApplicationController
     
     #encontra a modalidade pela vaga do usuario
     vaga = Vacancy.find_by_user_id(idUsuario)
-    modalidade = ModalityFiliation.find_by_filiation_id(vaga.modality_filiation_id)
+    mf = ModalityFiliation.find(vaga.modality_filiation_id)
 
     #validando entrada, caso o usuario nao tenha vaga vai cair aqui
     unless vaga
@@ -59,12 +59,12 @@ class GerencianetController < ApplicationController
     else
 
       # ".to_i" e o "* 100" sao pra corrigir o valor pro padrao do gerencianet. NAO TROQUE ISSO 
-      precoCerto = modalidade.price * 100
+      precoCerto = mf.price * 100
       precoCerto.to_i
 
       body = {
         items: [{
-          name: modalidade.name,  # modalidade.nome
+          name: mf.name,  # modalidade.nome
           value: precoCerto,             
           amount: 1                     
         }],
