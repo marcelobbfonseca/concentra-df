@@ -1,10 +1,11 @@
 class PagarmeController < ApplicationController
-	require "pagarme"
 	#TESTE
 	#chave de API: ak_test_XEzUxY3hjKReOSCMX1LtXjT7SEP2To
 	#chave integração(encription key): ek_test_8Iii0BHIsQNJTQ8XPp3ZlLboun312Z
+	require "pagarme"
+	skip_before_action :verify_authenticity_token #pra arrumar ActionController::InvalidAuthenticityToken
+	
 
-			
 	def paginacartao
 		render 'cartao' 	#carrega a pagina pro preenchimento do form
 	end
@@ -13,10 +14,11 @@ class PagarmeController < ApplicationController
 	def transacao
 		PagarMe.api_key = "ak_test_XEzUxY3hjKReOSCMX1LtXjT7SEP2To";
 
-
 	    #encontra a modalidade pela vaga do usuario
-	    vaga = Vacancy.find_by_user_id(idUsuario)
+	    vaga = Vacancy.find_by_user_id(current_user.id)
 	    mf = ModalityFiliation.find(vaga.modality_filiation_id)
+	    
+	    byebug
 
 	    #validando entrada, caso o usuario nao tenha vaga vai cair aqui
 	    unless vaga
@@ -36,6 +38,7 @@ class PagarmeController < ApplicationController
 		transaction.charge
 
 		status = transaction.status # status da transação
+		render 'sucesso'
 		
 	end
 
