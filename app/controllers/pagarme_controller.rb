@@ -18,7 +18,7 @@ class PagarmeController < ApplicationController
 	    vaga = Vacancy.find_by_user_id(current_user.id)
 	    mf = ModalityFiliation.find(vaga.modality_filiation_id)
 	    
-	    byebug
+	    #byebug
 
 	    #validando entrada, caso o usuario nao tenha vaga vai cair aqui
 	    unless vaga
@@ -32,7 +32,7 @@ class PagarmeController < ApplicationController
 
 		transaction = PagarMe::Transaction.new({
 		    :amount => precoCerto, #Ex: R$14,99 = 1499
-		    :card_hash => "{CARD_HASH}"
+		    :card_hash => params[:card_hash]
 		})
 
 		transaction.charge
