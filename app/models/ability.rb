@@ -9,12 +9,9 @@ class Ability
 	  		if User.exists?(user) #funciona mas faz query no bd. mais lento
 	  		#if user.encrypted_password # vai verificar se o padrao devise de senha existe pra instancia usuario. Se o bd nao tiver zoado, isso so retorna valor se o cara tiver logado 
 	  			can :manage, Vacancy #pode escolher a vaga
-	  		end	  		
+	        	can :manage, Complement
+	  		end
 	  		can :read, :all
-	  	
 	  	end
-
-	  	#se deslogado
-	  	#cannot :read, Vacancy
   end
 end

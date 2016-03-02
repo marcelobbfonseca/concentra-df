@@ -26,6 +26,7 @@ class ComplementsController < ApplicationController
   # POST /complements.json
   def create
     @complement = Complement.new(complement_params)
+    @complement.user = current_user
 
     respond_to do |format|
       if @complement.save
@@ -70,6 +71,6 @@ class ComplementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complement_params
-      params.require(:complement).permit(:name, :cpf, :rg, :photo, :badge_name, :user_id, :je_id)
+      params.require(:complement).permit(:name, :cpf, :rg, :je_id)
     end
 end

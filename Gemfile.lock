@@ -202,7 +202,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  cancan
+  cancancan
   coffee-rails (~> 4.1.0)
   devise
   gerencianet
@@ -220,3 +220,6 @@ DEPENDENCIES
   spring
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
