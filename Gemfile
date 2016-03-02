@@ -51,7 +51,6 @@ end
 gem 'devise'			#gema para autenticacoes loucas
 gem 'omniauth-facebook' #gema para logar com caralivro
 
-gem 'cancan' 			#gema para o controle dos poderes do usuario
 gem 'gerencianet' 		#gema da API gerencianet p/ gerar boleto
 gem 'pagarme' 			#gema da API pagar.me p/ transacao de cartao
 
