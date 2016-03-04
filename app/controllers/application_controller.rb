@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   	rescue_from CanCan::AccessDenied do |exception|	#quando abrir pagina nao autorizada, volta pra home.
   		redirect_to root_url, :alert => exception.message
    	end
+
 end
